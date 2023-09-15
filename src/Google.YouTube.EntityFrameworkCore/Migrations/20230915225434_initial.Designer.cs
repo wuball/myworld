@@ -11,54 +11,56 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Google.YouTube.Migrations
 {
     [DbContext(typeof(YouTubeDbContext))]
-    [Migration("20230915215559_initial")]
+    [Migration("20230915225434_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Abp.Application.Editions.Edition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(32)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(32)");
 
                     b.HasKey("Id");
 
@@ -71,30 +73,30 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasMaxLength(2000)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(2000)");
 
                     b.HasKey("Id");
 
@@ -107,64 +109,64 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("BrowserInfo")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("ClientIpAddress")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("ClientName")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("CustomData")
                         .HasMaxLength(2000)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("Exception")
                         .HasMaxLength(2000)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("ExceptionMessage")
                         .HasMaxLength(1024)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(1024)");
 
                     b.Property<int>("ExecutionDuration")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ExecutionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("ImpersonatorTenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("ImpersonatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("MethodName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("Parameters")
                         .HasMaxLength(1024)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(1024)");
 
                     b.Property<string>("ReturnValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ServiceName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -181,28 +183,28 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsGranted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -217,26 +219,26 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ClaimType")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -251,45 +253,45 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("EmailAddress")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("UserLinkId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -310,26 +312,26 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ClaimType")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -344,23 +346,23 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("LoginProvider")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderKey")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -380,39 +382,39 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("BrowserInfo")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("ClientIpAddress")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("ClientName")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<byte>("Result")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<string>("TenancyName")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("UserNameOrEmailAddress")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -427,25 +429,25 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<long>("OrganizationUnitId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -462,22 +464,22 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -494,28 +496,28 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ExpireDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Value")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.HasKey("Id");
 
@@ -530,38 +532,38 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsAbandoned")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("JobArgs")
                         .IsRequired()
                         .HasMaxLength(1048576)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("JobType")
                         .IsRequired()
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<DateTime?>("LastTryTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("NextTryTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<byte>("Priority")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<short>("TryCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("smallint");
 
                     b.HasKey("Id");
 
@@ -574,33 +576,33 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -616,17 +618,17 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("DynamicPropertyId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("EntityFullName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -642,20 +644,20 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("DynamicEntityPropertyId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("EntityId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -668,23 +670,23 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("DisplayName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("InputType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Permission")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PropertyName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -698,17 +700,17 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("DynamicPropertyId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -721,27 +723,27 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("ChangeTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<byte>("ChangeType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<long>("EntityChangeSetId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("EntityId")
                         .HasMaxLength(48)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(48)");
 
                     b.Property<string>("EntityTypeFullName")
                         .HasMaxLength(192)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(192)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -756,41 +758,41 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("BrowserInfo")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("ClientIpAddress")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("ClientName")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("ExtensionData")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("ImpersonatorTenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("ImpersonatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Reason")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -807,35 +809,35 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long>("EntityChangeId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("NewValue")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("NewValueHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("OriginalValue")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("OriginalValueHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PropertyName")
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<string>("PropertyTypeFullName")
                         .HasMaxLength(192)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(192)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -848,43 +850,43 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("ClientId")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<DateTime?>("ConsumedTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Data")
                         .IsRequired()
                         .HasMaxLength(50000)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Description")
                         .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<DateTime?>("Expiration")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("SessionId")
                         .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("SubjectId")
                         .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 
@@ -901,48 +903,48 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("Icon")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsDisabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -955,42 +957,42 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Key")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("LanguageName")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Source")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasMaxLength(67108864)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1003,53 +1005,53 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Data")
                         .HasMaxLength(1048576)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("DataTypeName")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("EntityId")
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<string>("EntityTypeAssemblyQualifiedName")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("EntityTypeName")
                         .HasMaxLength(250)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("ExcludedUserIds")
                         .HasMaxLength(131072)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("NotificationName")
                         .IsRequired()
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<byte>("Severity")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<string>("TenantIds")
                         .HasMaxLength(131072)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserIds")
                         .HasMaxLength(131072)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1060,35 +1062,35 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("EntityId")
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<string>("EntityTypeAssemblyQualifiedName")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("EntityTypeName")
                         .HasMaxLength(250)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("NotificationName")
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -1103,44 +1105,44 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Data")
                         .HasMaxLength(1048576)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("DataTypeName")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("EntityId")
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<string>("EntityTypeAssemblyQualifiedName")
                         .HasMaxLength(512)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(512)");
 
                     b.Property<string>("EntityTypeName")
                         .HasMaxLength(250)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("NotificationName")
                         .IsRequired()
                         .HasMaxLength(96)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(96)");
 
                     b.Property<byte>("Severity")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint unsigned");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1153,22 +1155,22 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("State")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<Guid>("TenantNotificationId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -1181,44 +1183,44 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(95)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(95)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("ParentId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1233,25 +1235,25 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<long>("OrganizationUnitId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1266,26 +1268,26 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Data")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("WebhookName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1296,28 +1298,28 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Response")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("ResponseStatusCode")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<Guid>("WebhookEventId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<Guid>("WebhookSubscriptionId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
@@ -1330,33 +1332,33 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Headers")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Secret")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("WebhookUri")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Webhooks")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1367,43 +1369,43 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("EndTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long>("SourceUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("StartTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long>("TargetUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1418,57 +1420,57 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<bool>("IsDefault")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsStatic")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(32)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(32)");
 
                     b.Property<string>("NormalizedName")
                         .IsRequired()
                         .HasMaxLength(32)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(32)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1487,23 +1489,23 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -1514,127 +1516,127 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("AuthenticationSource")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("EmailConfirmationCode")
                         .HasMaxLength(328)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(328)");
 
                     b.Property<string>("GoogleAuthenticatorKey")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsEmailConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsLockoutEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsPhoneNumberConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsTwoFactorEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("LockoutEndDateUtc")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<string>("NormalizedEmailAddress")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("PasswordResetCode")
                         .HasMaxLength(328)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(328)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(32)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(32)");
 
                     b.Property<Guid?>("ProfilePictureId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("SecurityStamp")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<bool>("ShouldChangePasswordOnNextLogin")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SignInToken")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime?>("SignInTokenExpireTimeUtc")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -1655,39 +1657,39 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Message")
                         .IsRequired()
                         .HasMaxLength(4096)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(4096)");
 
                     b.Property<int>("ReadState")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("ReceiverReadState")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<Guid?>("SharedMessageId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<int>("Side")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TargetTenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("TargetUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -1706,36 +1708,36 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid?>("FriendProfilePictureId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("FriendTenancyName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("FriendTenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("FriendUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("FriendUserName")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int>("State")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -1754,22 +1756,22 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("InvoiceDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("InvoiceNo")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("TenantAddress")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("TenantLegalName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("TenantTaxNo")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1780,70 +1782,70 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("DayCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("EditionId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("EditionPaymentType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ErrorUrl")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ExternalPaymentId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("Gateway")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("InvoiceNo")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsRecurring")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("PaymentPeriodType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("SuccessUrl")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1860,19 +1862,19 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Key")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<long>("SubscriptionPaymentId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1886,67 +1888,67 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ConnectionString")
                         .HasMaxLength(1024)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(1024)");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatorUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<Guid?>("CustomCssId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<long?>("DeleterUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("EditionId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsInTrialPeriod")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("LogoFileType")
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.Property<Guid?>("LogoId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime?>("SubscriptionEndDateUtc")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("SubscriptionPaymentType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("TenancyName")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("varchar(64)");
 
                     b.HasKey("Id");
 
@@ -1971,18 +1973,18 @@ namespace Google.YouTube.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("char(36)");
 
                     b.Property<byte[]>("Bytes")
                         .IsRequired()
                         .HasMaxLength(10240)
-                        .HasColumnType("BLOB");
+                        .HasColumnType("longblob");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("TenantId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1996,7 +1998,7 @@ namespace Google.YouTube.Migrations
                     b.HasBaseType("Abp.Application.Features.FeatureSetting");
 
                     b.Property<int>("EditionId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasIndex("EditionId", "Name");
 
@@ -2010,7 +2012,7 @@ namespace Google.YouTube.Migrations
                     b.HasBaseType("Abp.Authorization.PermissionSetting");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasIndex("RoleId");
 
@@ -2024,7 +2026,7 @@ namespace Google.YouTube.Migrations
                     b.HasBaseType("Abp.Authorization.PermissionSetting");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasIndex("UserId");
 
@@ -2049,25 +2051,25 @@ namespace Google.YouTube.Migrations
                     b.HasBaseType("Abp.Application.Editions.Edition");
 
                     b.Property<decimal?>("AnnualPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<decimal?>("DailyPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("ExpiringEditionId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("MonthlyPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("TrialDayCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int?>("WaitingDayAfterExpire")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("WeeklyPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(65,30)");
 
                     b.ToTable("AbpEditions");
 

@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace Google.YouTube.EntityFrameworkCore
@@ -8,13 +9,13 @@ namespace Google.YouTube.EntityFrameworkCore
         public static void Configure(DbContextOptionsBuilder<YouTubeDbContext> builder, string connectionString)
         {
             //builder.UseSqlServer(connectionString);
-            builder.UseSqlite(connectionString);
+            builder.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 11, 5)));
         }
 
         public static void Configure(DbContextOptionsBuilder<YouTubeDbContext> builder, DbConnection connection)
         {
             //builder.UseSqlServer(connection);
-            builder.UseSqlite(connection);
+            builder.UseMySql(connection, new MariaDbServerVersion(new Version(10, 11, 5)));
         }
     }
 }
