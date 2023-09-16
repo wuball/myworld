@@ -1,0 +1,94 @@
+﻿
+@using Google.YouTube.Web.Areas.App.Models.Common.Modals
+@using Google.YouTube.Web.Areas.App.Models.Countries
+@model CountryViewModel
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details")))
+
+<div class="modal-body">
+    <div id="CountryInformationsTab">
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <h6>@L("Name") :</h6>
+                @Model.Country.Name
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Region") :</h6>
+                @Model.Country.Region
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("SubRegion") :</h6>
+                @Model.Country.SubRegion
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("English") :</h6>
+                @Model.Country.English
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Latitude") :</h6>
+                @Model.Country.Latitude
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Longitude") :</h6>
+                @Model.Country.Longitude
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Area") :</h6>
+                @Model.Country.Area
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("CallingCodes") :</h6>
+                @Model.Country.CallingCodes
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Landlocked") :</h6>
+                @Model.Country.Landlocked
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Capital") :</h6>
+                @Model.Country.Capital
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Flag") :</h6>
+                @Model.Country.Flag
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Independent") :</h6>
+                @Model.Country.Independent
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Organization") :</h6>
+                @Model.Country.Organization
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Visa") :</h6>
+                @Model.Country.Visa
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Extradition") :</h6>
+                @Model.Country.Extradition
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Repatriate") :</h6>
+                @Model.Country.Repatriate
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("WorkingVisa") :</h6>
+                @Model.Country.WorkingVisa
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("ProAmerican") :</h6>
+                @Model.Country.ProAmerican
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Birthright") :</h6>
+                @Model.Country.Birthright
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithClose.cshtml")

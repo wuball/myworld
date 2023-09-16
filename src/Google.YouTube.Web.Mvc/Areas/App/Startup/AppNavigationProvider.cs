@@ -21,6 +21,14 @@ namespace Google.YouTube.Web.Areas.App.Startup
                         icon: "flaticon-line-graph",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Administration_Host_Dashboard)
                     )
+                )
+                .AddItem(new MenuItemDefinition(
+                        AppPageNames.Common.Countries,
+                        L("Countries"),
+                        url: "App/Countries",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Countries)
+                    )
                 ).AddItem(new MenuItemDefinition(
                     AppPageNames.Host.Tenants,
                     L("Tenants"),

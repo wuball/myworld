@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.YouTube.Qing;
+using System;
 using System.Linq;
 using Abp.Organizations;
 using Google.YouTube.Authorization.Roles;
@@ -12,11 +13,13 @@ namespace Google.YouTube.EntityHistory
 
         public static readonly Type[] HostSideTrackedTypes =
         {
+            typeof(Country),
             typeof(OrganizationUnit), typeof(Role), typeof(Tenant)
         };
 
         public static readonly Type[] TenantSideTrackedTypes =
         {
+            typeof(Country),
             typeof(OrganizationUnit), typeof(Role)
         };
 

@@ -1,10 +1,10 @@
 ﻿{
   "CompanyName": "Google",
   "ProjectName": "YouTube",
-  "ProjectType": "ProjectType",
-  "ProjectVersion":"ProjectVersion",
+  "ProjectType": "Mvc",
+  "ProjectVersion":"11.1.0",
   "ApplicationAreaName": "App",
-  "LicenseCode": "LicenseCodePlaceHolderToReplace",
+  "LicenseCode": "",
   "AngularSrcPath": "\\..\\..\\angular\\src\\",
   "AngularMergedSrcPath": "\\..\\src\\{{Namespace_Here}}.Web.Host\\src\\",
   "CoreSrcPath": "\\..\\src\\",

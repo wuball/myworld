@@ -1,0 +1,127 @@
+﻿
+@using System.Globalization
+@using Google.YouTube.Web.Areas.App.Models.Common.Modals
+@using Google.YouTube.Web.Areas.App.Models.Countries
+@model CreateOrEditCountryModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditCountry")) : L("CreateNewCountry")))
+
+<div class="modal-body">
+    <div id="CountryInformationsTab">
+        <form name="CountryInformationsForm" role="form" novalidate class="form-validation">
+
+            @if (Model.IsEditMode)
+            {
+            <input type="hidden" name="id" value="@Model.Country.Id" />
+            }
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Name">@L("Name")</label>
+                <input class="form-control" id="Country_Name" value="@Model.Country.Name" type="text" name="name" required maxlength="@Google.YouTube.Qing.CountryConsts.MaxNameLength" minlength="@Google.YouTube.Qing.CountryConsts.MinNameLength" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Region">@L("Region")</label>
+                <input class="form-control" id="Country_Region" value="@Model.Country.Region" type="text" name="region" required maxlength="@Google.YouTube.Qing.CountryConsts.MaxRegionLength" minlength="@Google.YouTube.Qing.CountryConsts.MinRegionLength" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_SubRegion">@L("SubRegion")</label>
+                <input class="form-control" id="Country_SubRegion" value="@Model.Country.SubRegion" type="text" name="subRegion" maxlength="@Google.YouTube.Qing.CountryConsts.MaxSubRegionLength" minlength="@Google.YouTube.Qing.CountryConsts.MinSubRegionLength" />
+            </div>
+
+            <label class="form-check form-check-custom">
+                <input id="Country_English" name="english" type="checkbox" class="form-check-input" value="true" @Html.Raw(Model.Country.English ?"checked=\"checked\"":"") />
+                <span class="form-check-label">
+                    @L("English")
+                </span>
+            </label>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Latitude">@L("Latitude")</label>
+                <input class="form-control m-input" id="Country_Latitude" value="@Model.Country.Latitude.ToString(CultureInfo.InvariantCulture)" type="number" name="latitude" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Longitude">@L("Longitude")</label>
+                <input class="form-control m-input" id="Country_Longitude" value="@Model.Country.Longitude.ToString(CultureInfo.InvariantCulture)" type="number" name="longitude" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Area">@L("Area")</label>
+                <input class="form-control m-input" id="Country_Area" value="@Model.Country.Area.ToString(CultureInfo.InvariantCulture)" type="number" name="area" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_CallingCodes">@L("CallingCodes")</label>
+                <input class="form-control" id="Country_CallingCodes" value="@Model.Country.CallingCodes" type="text" name="callingCodes" />
+            </div>
+
+            <label class="form-check form-check-custom">
+                <input id="Country_Landlocked" name="landlocked" type="checkbox" class="form-check-input" value="true" @Html.Raw(Model.Country.Landlocked ?"checked=\"checked\"":"") />
+                <span class="form-check-label">
+                    @L("Landlocked")
+                </span>
+            </label>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Capital">@L("Capital")</label>
+                <input class="form-control" id="Country_Capital" value="@Model.Country.Capital" type="text" name="capital" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Flag">@L("Flag")</label>
+                <input class="form-control" id="Country_Flag" value="@Model.Country.Flag" type="text" name="flag" />
+            </div>
+
+            <label class="form-check form-check-custom">
+                <input id="Country_Independent" name="independent" type="checkbox" class="form-check-input" value="true" @Html.Raw(Model.Country.Independent ?"checked=\"checked\"":"") />
+                <span class="form-check-label">
+                    @L("Independent")
+                </span>
+            </label>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Organization">@L("Organization")</label>
+                <input class="form-control" id="Country_Organization" value="@Model.Country.Organization" type="text" name="organization" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Visa">@L("Visa")</label>
+                <input class="form-control" id="Country_Visa" value="@Model.Country.Visa" type="text" name="visa" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Extradition">@L("Extradition")</label>
+                <input class="form-control" id="Country_Extradition" value="@Model.Country.Extradition" type="text" name="extradition" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_Repatriate">@L("Repatriate")</label>
+                <input class="form-control" id="Country_Repatriate" value="@Model.Country.Repatriate" type="text" name="repatriate" />
+            </div>
+
+            <div class="my-3">
+                <label class="form-label" for="Country_WorkingVisa">@L("WorkingVisa")</label>
+                <input class="form-control" id="Country_WorkingVisa" value="@Model.Country.WorkingVisa" type="text" name="workingVisa" />
+            </div>
+
+            <label class="form-check form-check-custom">
+                <input id="Country_ProAmerican" name="proAmerican" type="checkbox" class="form-check-input" value="true" @Html.Raw(Model.Country.ProAmerican ?"checked=\"checked\"":"") />
+                <span class="form-check-label">
+                    @L("ProAmerican")
+                </span>
+            </label>
+
+            <label class="form-check form-check-custom">
+                <input id="Country_Birthright" name="birthright" type="checkbox" class="form-check-input" value="true" @Html.Raw(Model.Country.Birthright ?"checked=\"checked\"":"") />
+                <span class="form-check-label">
+                    @L("Birthright")
+                </span>
+            </label>
+
+        </form>
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

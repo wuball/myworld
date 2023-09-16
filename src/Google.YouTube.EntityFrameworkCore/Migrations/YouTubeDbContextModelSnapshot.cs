@@ -1967,6 +1967,105 @@ namespace Google.YouTube.Migrations
                     b.ToTable("AbpTenants");
                 });
 
+            modelBuilder.Entity("Google.YouTube.Qing.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Area")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Birthright")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("CallingCodes")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Capital")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long?>("CreatorUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("DeleterUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("English")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Extradition")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Flag")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Independent")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("Landlocked")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long?>("LastModifierUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("double");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("double");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.Property<string>("Organization")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("ProAmerican")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<string>("Repatriate")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SubRegion")
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<int?>("TenantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Visa")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("WorkingVisa")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TenantId");
+
+                    b.ToTable("Countries");
+                });
+
             modelBuilder.Entity("Google.YouTube.Storage.BinaryObject", b =>
                 {
                     b.Property<Guid>("Id")

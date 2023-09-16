@@ -4,6 +4,7 @@
     {
         public static class Common
         {
+            public const string Countries = "Qing.Countries";
             public const string Administration = "Administration";
             public const string Roles = "Administration.Roles";
             public const string Users = "Administration.Users";

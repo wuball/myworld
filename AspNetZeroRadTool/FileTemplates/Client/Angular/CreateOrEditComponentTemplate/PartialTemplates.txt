@@ -1,4 +1,4 @@
-﻿{
+{
 "propertyTemplates":[
 		{
 			"placeholder" : "{{Property_Datetime_Init_Looped_Template_Here}}",
@@ -139,11 +139,7 @@
                                   
                        onSelect{{Property_Name_Here}}File(fileInput: any): void {
                            let selectedFile = <File>fileInput.target.files[0];
-                           if(!selectedFile){
-                               this.{{entity_Name_Here}}_{{property_Name_Here}}Label.nativeElement.innerText = this.l('ChooseAFile');
-                                return;
-                           }
-                           this.{{entity_Name_Here}}_{{property_Name_Here}}Label.nativeElement.innerText = selectedFile.name;
+                           
                            this.{{property_Name_Here}}FileUploader.clearQueue();
                            this.{{property_Name_Here}}FileUploader.addToQueue([selectedFile]);
                            this.{{property_Name_Here}}FileUploader.uploadAll();
@@ -267,7 +263,7 @@ import { {{Master_Detail_Child_Prefix_Here}}{{Entity_Name_Here}}{{NP_Foreign_Ent
 					"viewType": "LookupTable",
 					"content" : "    openSelect{{NP_Foreign_Entity_Name_Here}}Modal{{NP_Duplication_Number_Here}}() {
         this.{{entity_Name_Here}}{{NP_Foreign_Entity_Name_Here}}LookupTableModal{{NP_Duplication_Number_Here}}.id = this.{{entity_Name_Here}}.{{nP_Name_Here}};
-        this.{{entity_Name_Here}}{{NP_Foreign_Entity_Name_Here}}LookupTableModal{{NP_Duplication_Number_Here}}.displayName = this.{{nP_Foreign_Entity_Name_Here}}{{NP_Display_Property_Name_Here}};
+        this.{{entity_Name_Here}}{{NP_Foreign_Entity_Name_Here}}LookupTableModal{{NP_Duplication_Number_Here}}.displayName = this.{{nP_Foreign_Entity_Name_Here}}{{NP_Display_Property_Name_Here}}{{NP_Duplication_Number_Here}};
         this.{{entity_Name_Here}}{{NP_Foreign_Entity_Name_Here}}LookupTableModal{{NP_Duplication_Number_Here}}.show();
     }
 "

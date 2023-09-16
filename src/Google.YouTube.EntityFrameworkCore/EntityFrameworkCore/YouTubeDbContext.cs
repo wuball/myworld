@@ -1,4 +1,5 @@
-﻿using Abp.IdentityServer4vNext;
+﻿using Google.YouTube.Qing;
+using Abp.IdentityServer4vNext;
 using Abp.Zero.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Google.YouTube.Authorization.Delegation;
@@ -16,6 +17,8 @@ namespace Google.YouTube.EntityFrameworkCore
 {
     public class YouTubeDbContext : AbpZeroDbContext<Tenant, Role, User, YouTubeDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<Country> Countries { get; set; }
+
         /* Define an IDbSet for each entity of the application */
 
         public virtual DbSet<BinaryObject> BinaryObjects { get; set; }
@@ -35,7 +38,7 @@ namespace Google.YouTube.EntityFrameworkCore
         public virtual DbSet<SubscriptionPaymentExtensionData> SubscriptionPaymentExtensionDatas { get; set; }
 
         public virtual DbSet<UserDelegation> UserDelegations { get; set; }
-        
+
         public virtual DbSet<RecentPassword> RecentPasswords { get; set; }
 
         public YouTubeDbContext(DbContextOptions<YouTubeDbContext> options)
@@ -48,10 +51,14 @@ namespace Google.YouTube.EntityFrameworkCore
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<BinaryObject>(b =>
+            modelBuilder.Entity<Country>(c =>
             {
-                b.HasIndex(e => new { e.TenantId });
+                c.HasIndex(e => new { e.TenantId });
             });
+            modelBuilder.Entity<BinaryObject>(b =>
+                       {
+                           b.HasIndex(e => new { e.TenantId });
+                       });
 
             modelBuilder.Entity<ChatMessage>(b =>
             {
